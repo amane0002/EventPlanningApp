@@ -1,1 +1,140 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+main {
+    margin-top: 24px;
+    margin-bottom: 60px;
+}
+
+h1 {
+    color: hsl(210, 91%, 53%);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 125px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+    max-width: 1200px;
+    word-wrap: break-word;
+    hyphens: auto;
+    line-height: 1.2;
+}
+
+
+h2 {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 32px;
+    text-align: left;
+    margin-top: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+}
+
+p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    text-align: justify;
+    margin-top: 15px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+}
+
+nav {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+}
+
+form {
+    margin: 0;
+}
+
+footer {
+    background-color: hsl(210, 97%, 59%);
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.button {
+    border-radius: 15px;
+    background-color: hsl(210, 97%, 59%);
+    border: none;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 35px;
+    height: 65px;
+    width: 300px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    transform: scale(1.05);
+}
+
+#banner {
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+    h1 {
+        font-size: 100px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 80px;
+    }
+    nav {
+        flex-direction: column;
+        top: 65%;
+        gap: 20px;
+    }
+    .button {
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 60px;
+    }
+    nav {
+        top: 70%;
+    }
+    .button {
+        width: 200px;
+    }
+}
