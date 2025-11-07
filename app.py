@@ -21,7 +21,7 @@ def add_user():
 def submit():
     form_data = request.form.to_dict() #This puts all the data from post into a dictionary
     print(form_data)
-    with open('add_users.csv', 'a', newline='') as csvfile:
+    with open('events.csv', 'a', newline='') as csvfile:
         writer = csv.DictWriter(csvfile, CSV_HEADER)
         writer.writerow(form_data)
    
