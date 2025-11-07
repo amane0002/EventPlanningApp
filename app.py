@@ -14,11 +14,11 @@ def index():
     return render_template('index.html')
 
 @app.route('/addevent')
-def add_user():
+def add_event():
     return render_template('addevent.html')
 
 @app.route('/submitEvent', methods=['POST'])
-def submit():
+def submitEvent():
     form_data = request.form.to_dict() #This puts all the data from post into a dictionary
     print(form_data)
     with open('events.csv', 'a', newline='') as csvfile:
