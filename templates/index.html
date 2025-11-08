@@ -3,8 +3,10 @@
 <body>
 
 <h1>Actions</h1>
-<h2><a href="/addevent">Add Event</a></h2>
-<h2><a href="/eventviewtest">View Events</a></h2>
+<!-- Uses url_for('add_event') -->
+<h2><a href="{{ url_for('add_event') }}">Add Event</a></h2>
+<!-- Updated to use url_for('event_find') -->
+<h2><a href="{{ url_for('find') }}">View Events</a></h2>
 
 </body>
 </html>
