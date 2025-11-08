@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LocalLoop</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 0; }
+    .hero { position: relative; padding: 4rem 2rem; text-align: center; background: #f0f0f0; }
+    .hero-content h1 { margin-bottom: 1rem; }
+    .btn-container { margin-bottom: 2rem; }
+    .main-btn { padding: 0.7rem 1.5rem; margin: 0 0.5rem; display: inline-block; text-decoration: none; border-radius: 5px; background: #007bff; color: white; }
+    .main-btn.outline { background: transparent; border: 2px solid #007bff; color: #007bff; }
+    .event-form { max-width: 500px; margin: 2rem auto; padding: 2rem; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .event-form input, .event-form textarea, .event-form button { display: block; width: 100%; margin-bottom: 1rem; padding: 0.6rem; }
+    .event-form button { background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    .event-form button:hover { background: #0056b3; }
+  </style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+    <h1>LocalLoop</h1>
+    <div class="btn-container">
+      <a href="#create-event" class="main-btn">Create an Event</a>
+      <a href="#create-event" class="main-btn outline">Find an Event</a>
+    </div>
+  </div>
+</section>
+
+<!-- Event Form Section -->
+<section id="create-event" class="event-form">
+  <h2>Create an Event</h2>
+  <form id="eventForm">
+    <input type="text" id="name" placeholder="Event Name" required>
+    <input type="text" id="location" placeholder="Location" required>
+    <input type="datetime-local" id="time" required>
+    <input type="text" id="people" placeholder="People (comma-separated)" required>
+    <textarea id="description" placeholder="Description" required></textarea>
+    <button type="submit">Submit Event</button>
+  </form>
+  <p id="message"></p>
+</section>
+
+<script>
+  const form = document.getElementById("eventForm");
+  const message = document.getElementById("message");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const event = {
+      name: document.getElementById("name").value,
+      location: document.getElementById("location").value,
+      time: document.getElementById("time").value,
+      people: document.getElementById("people").value,
+      description: document.getElementById("description").value
+    };
+
+    const res = await fetch("/add-event", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(event)
+    });
+
+    const text = await res.text();
+    message.textContent = text;
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
