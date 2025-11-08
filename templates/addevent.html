@@ -1,19 +1,75 @@
-<!DOCTYPE html>
-<html>
-  <body>
-    <h2>Add Event</h2>
-    <form action="/submitEvent" method="POST">
-      
-      <p><p>Event ID</p><input type="text" name="EventID" required></p>
-      <p><p>Category</p><input type="text" name="Category" required></p>
-      <p><p>Date (MMDDYYYY)</p><input type="text" name="Date" required></p>
-      <p><p>Price</p><input type="text" name="Price" required></p>
-      <p><p>Event Name</p><input type="text" name="EventName" required></p>
-      <p><p>Location</p><input type="text" name="Location" required></p>
-      <p><p>Description</p><input type="text" name="Description" required></p>
-      <p><p>Contact Info</p><input type="text" name="ContactInfo" required></p>
-      
-      <input type="submit" value="Submit">
+{% extends "layout.html" %}
+
+{% block title %}Add Event{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-2xl">
+    <h1 class="text-3xl font-bold text-indigo-700 mb-6 border-b pb-2">Submit a New Event</h1>
+    
+    <!-- The form points to the submitEvent route with POST method -->
+    <form action="{{ url_for('submitEvent') }}" method="POST" class="space-y-6">
+        
+        <div>
+            <label for="EventID" class="block text-sm font-medium text-gray-700">Event ID</label>
+            <input type="text" id="EventID" name="EventID" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
+
+        <div>
+            <label for="EventName" class="block text-sm font-medium text-gray-700">Event Name</label>
+            <input type="text" id="EventName" name="EventName" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
+        
+        <!-- NEW DROPDOWN MENU FOR CATEGORY -->
+        <div>
+            <label for="Category" class="block text-sm font-medium text-gray-700">Category</label>
+            <select id="Category" name="Category" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                <option value="" disabled selected>Select a Category</option>
+                <option value="Music">Music</option>
+                <option value="Food">Food & Drink</option>
+                <option value="Workshop">Workshop / Education</option>
+                <option value="Sports">Sports & Fitness</option>
+                <option value="Art">Art & Culture</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        
+        <!-- NEW FIELD: DATE -->
+        <div>
+            <label for="Date" class="block text-sm font-medium text-gray-700">Date (MM/DD/YYYY)</label>
+            <input type="text" id="Date" name="Date" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500" placeholder="e.g., 12/31/2025">
+        </div>
+        
+        <!-- NEW FIELD: PRICE -->
+        <div>
+            <label for="Price" class="block text-sm font-medium text-gray-700">Price (e.g., $10 or Free)</label>
+            <input type="text" id="Price" name="Price" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500" placeholder="e.g., Free, $25">
+        </div>
+
+        <div>
+            <label for="Location" class="block text-sm font-medium text-gray-700">Location</label>
+            <select id="Location" name="Location" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                <option value="" disabled selected>Select a Location</option>
+                <option value="Down Town">Music</option>
+                <option value="Near Me">Food & Drink</option>
+                <option value="Campus">Workshop / Education</option>
+                <option value="City Center">Sports & Fitness</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        
+        <div>
+            <label for="Description" class="block text-sm font-medium text-gray-700">Description</label>
+            <textarea id="Description" name="Description" rows="3" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+        </div>
+
+        <div>
+            <label for="ContactInfo" class="block text-sm font-medium text-gray-700">Contact Information</label>
+            <input type="text" id="ContactInfo" name="ContactInfo" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
+
+        <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-md text-lg font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150">
+            Save Event
+        </button>
     </form>
-  </body>
-</html>
+</div>
+{% endblock %}
