@@ -7,34 +7,41 @@
     
     <title>LocalLoop</title>
     
-    <link rel="stylesheet" href="assets/css/styles.css"/>
-    <link rel="stylesheet" href="assets/css/index.css"/>
-    <link rel="icon" href="assets/images/favicon.jpg" type="image/x-icon"/>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+  <link rel="stylesheet" href="assets/css/index.css"/>
+  <meta name="description" content="Local Loop — event planning services and vendor connections to make your event unforgettable.">
+  <meta name="theme-color" content="#0ea5e9">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Favicons (place appropriate files in assets/images/) -->
+  <link rel="icon" href="assets/images/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
 
   </head>
 
 
   <body>
-    <header>
-      <img id="banner" src="assets/images/banner.jpeg" alt="Banner Image"/>
+    <header class="hero">
+      <img id="banner" src="assets/images/banner.jpeg" alt="People celebrating at an event"/>
 
-      <h1 id="Logo">Local Loop</h1>
+      <div class="hero-inner">
+        <h1 id="Logo">Local Loop</h1>
 
-      <nav>
+        <nav aria-label="Primary">
+          <form action="find.html">
+            <input class="button" type="submit" value="Find" aria-label="Find events"/>
+          </form>
 
-        <form action="find.html">
-          <input class="button" type="submit" value="Find" />
-        </form>   
-
-        <form action="create.html">
-          <input class="button" type="submit" value="Create" />
-        </form>   
-
-      </nav>
+          <form action="create.html">
+            <input class="button" type="submit" value="Create" aria-label="Create event"/>
+          </form>
+        </nav>
+      </div>
     </header>
 
     <main>
-      <section>
+      <section class="content">
         <h2>About this website</h2>
 
         <p>
@@ -57,6 +64,6 @@
     <footer>
       <p>&copy; 2025 Local Loop. All rights reserved.</p>
     </footer>
-
   </body>
 </html>
+
